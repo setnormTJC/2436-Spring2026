@@ -4,4 +4,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="2436-Spring2026/2436-Spring2026.vcxproj" />
+  <Project Path="Benchmarking bin search and linear search with RNG/Benchmarking bin search and linear search with RNG.vcxproj" />
 </Solution>

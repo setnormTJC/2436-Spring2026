@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{32bbcdab-d90f-41b2-9209-4260320a6b6b}</ProjectGuid>
-    <RootNamespace>My2436Spring2026</RootNamespace>
+    <ProjectGuid>{bdf91d8f-0679-4574-9219-da9eb5a1def6}</ProjectGuid>
+    <RootNamespace>BenchmarkingbinsearchandlinearsearchwithRNG</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Starting late January</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,11 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="CustomDynamicArray.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CustomDynamicArray.h" />
+    <ClCompile Include="Benchmarking bin search and linear search with RNG.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
