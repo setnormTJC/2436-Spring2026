@@ -3,6 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="2436-Spring2026/2436-Spring2026.vcxproj" />
-  <Project Path="Benchmarking bin search and linear search with RNG/Benchmarking bin search and linear search with RNG.vcxproj" />
+  <Project Path="2436-Spring2026/2436-Spring2026.vcxproj" Id="32bbcdab-d90f-41b2-9209-4260320a6b6b" />
+  <Project Path="Benchmarking bin search and linear search with RNG/Benchmarking bin search and linear search with RNG.vcxproj" Id="bdf91d8f-0679-4574-9219-da9eb5a1def6" />
+  <Project Path="Simple binary search complexity example/Simple binary search complexity example.vcxproj" Id="73fec5b7-0eeb-4818-9a1d-d0209563152e" />
 </Solution>
