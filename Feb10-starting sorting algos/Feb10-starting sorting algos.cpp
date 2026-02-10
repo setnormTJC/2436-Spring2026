@@ -4,7 +4,7 @@
 
 #include<algorithm>
 #include <iostream>
-
+#include<random>
 
 #include "CustomDynamicArray.h"
 
@@ -25,16 +25,12 @@ int main()
     std::cout << "UNSORTED names:\n";
     customDynamicArray.print(); 
 
-    //std::is_sorted()
+   
+    customDynamicArray.naiveSort(); 
 
-
-    std::sort(customDynamicArray.listOfStrings.begin(), customDynamicArray.listOfStrings.end());
-    
-    customDynamicArray.miracleSort(); 
-
-    
-    std::cout << "SORTED names:\n";
-    customDynamicArray.print();
+    std::cout << "\n\nDid it work (shivers in anticipation):\n";
+    std::system("pause"); 
+    customDynamicArray.print(); 
 
     //std::cout << "Hello World!\n";
 }

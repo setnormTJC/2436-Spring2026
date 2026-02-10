@@ -24,7 +24,11 @@ public:
 	/*This algorithm has complexity BigO(INFINTITY)*/
 	void miracleSort(); 
 
+	/*THis is O(N!) complexity*/
+	void monkeySort(); 
 
+	/*This algo is O(N^2) complexity ON AVERAGE (BEST case: O(N))*/
+	void naiveSort(); 
 
 };
 
