@@ -5,5 +5,7 @@
   </Configurations>
   <Project Path="2436-Spring2026/2436-Spring2026.vcxproj" Id="32bbcdab-d90f-41b2-9209-4260320a6b6b" />
   <Project Path="Benchmarking bin search and linear search with RNG/Benchmarking bin search and linear search with RNG.vcxproj" Id="bdf91d8f-0679-4574-9219-da9eb5a1def6" />
+  <Project Path="Feb10-starting sorting algos/Feb10-starting sorting algos.vcxproj" Id="f21d3428-407e-4b72-9cb3-9433e7e3478d" />
+  <Project Path="One student submission of playing with ALGOS/One student submission of playing with ALGOS.vcxproj" Id="d9e2c3f5-d1b7-47a8-85cc-3eac53cd38b7" />
   <Project Path="Simple binary search complexity example/Simple binary search complexity example.vcxproj" Id="73fec5b7-0eeb-4818-9a1d-d0209563152e" />
 </Solution>
