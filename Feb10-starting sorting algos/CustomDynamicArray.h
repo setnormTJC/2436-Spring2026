@@ -3,13 +3,12 @@
 #include<string> 
 #include<vector> 
 
+/*Wrapper around std::vector that adds some functionality*/
 class CustomDynamicArray
 {
 
 public:
 	std::vector<std::string> listOfStrings; 
-
-
 
 	CustomDynamicArray() = default; 
 
@@ -17,9 +16,8 @@ public:
 
 	void print(); 
 
+	/*Mr. Wright implemented this bad boy, so it is PERFECT (without bugs)*/
 	bool isSortedInAscendingOrder();
-
-
 
 	/*This algorithm has complexity BigO(INFINTITY)*/
 	void miracleSort(); 
@@ -30,5 +28,9 @@ public:
 	/*This algo is O(N^2) complexity ON AVERAGE (BEST case: O(N))*/
 	void naiveSort(); 
 
+	/*low must be 0, and high must be N - 1??? (or N or N +1)*/
+	void quickSort(int low, int high);
+
+	int partition(int low, int high);
 };
 

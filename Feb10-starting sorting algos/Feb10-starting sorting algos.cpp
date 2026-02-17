@@ -24,9 +24,9 @@ int main()
 
     std::cout << "UNSORTED names:\n";
     customDynamicArray.print(); 
-
    
-    customDynamicArray.naiveSort(); 
+    customDynamicArray.quickSort(0, customDynamicArray.listOfStrings.size() - 1);
+
 
     std::cout << "\n\nDid it work (shivers in anticipation):\n";
     std::system("pause"); 

@@ -21,7 +21,6 @@ void CustomDynamicArray::print()
 
 bool CustomDynamicArray::isSortedInAscendingOrder()
 {
-	//return (std::is_sorted(listOfStrings.begin(), listOfStrings.end()));
 	bool sorted = true;
 
 	for (int i = 0; i < listOfStrings.size() - 1; ++i)
@@ -77,4 +76,56 @@ void CustomDynamicArray::naiveSort()
 		}
 		std::cout << "Incrementing LEFT index to: " << leftIndex + 1 << "\n";
 	}
+}
+
+
+int CustomDynamicArray::partition(int low, int high)
+{
+	std::string pivot = listOfStrings[high];
+	std::cout << "Pivoting around " << pivot << " ...\n";
+	int i = low - 1;
+
+	for (int j = low; j < high; ++j)
+	{
+		if (listOfStrings[j] <= pivot)
+		{
+			++i; //move the "boundary" of elements that are less than the pivot: 
+			std::swap(listOfStrings[i], listOfStrings[j]);
+		}
+	}
+
+	std::swap(listOfStrings[i + 1], listOfStrings[high]);
+
+	std::cout << "Updated names after partition: \n";
+	//printVec(names);
+	print(); 
+
+	return i + 1; //new partition location is 1 step to the right of the last element less than the pivot  
+}
+
+void CustomDynamicArray::quickSort(int low, int high)
+{
+	//static int pivotCounter = 0;
+
+	if (low < high)
+	{
+		int pivot = partition(low, high);
+		//pivotCounter++;
+
+		////If wanting to hide complexity/detail of partition function:
+		////the std library way uses std::paritition and is something close to: 
+		//auto partitionLoc = std::partition(names.begin() + 0, names.end() - 1,
+		//	[&](const std::string& currentName)
+		//	{
+		//		return currentName < names.back();
+		//	});
+		quickSort( low, pivot - 1);
+		quickSort(pivot + 1, high); //NOTE the exclusion of the pivot in BOTH of these recursive calls
+	}
+
+	//for algo analysis: 
+	//if (std::is_sorted(names.begin(), names.end()))
+	//{
+	//	std::cout << "Pivot counter: " << pivotCounter << "\n";
+	//}
 }
