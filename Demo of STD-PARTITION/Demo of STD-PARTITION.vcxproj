@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f21d3428-407e-4b72-9cb3-9433e7e3478d}</ProjectGuid>
-    <RootNamespace>Feb10startingsortingalgos</RootNamespace>
+    <ProjectGuid>{306bf6bb-1f8c-4b17-af40-57da87bdd585}</ProjectGuid>
+    <RootNamespace>DemoofSTDPARTITION</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,14 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CustomDynamicArray.cpp" />
-    <ClCompile Include="Feb10-starting sorting algos.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CustomDynamicArray.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClCompile Include="Demo of STD-PARTITION.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

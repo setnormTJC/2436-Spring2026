@@ -70,11 +70,11 @@ void CustomDynamicArray::naiveSort()
 			if (listOfStrings[leftIndex] > listOfStrings[rightIndex])//then swap
 			{
 				std::swap(listOfStrings[leftIndex], listOfStrings[rightIndex]);
-				print();//print updated array for visualization:
-				std::system("pause"); 
+				//print();//print updated array for visualization:
+				//std::system("pause"); 
 			}
 		}
-		std::cout << "Incrementing LEFT index to: " << leftIndex + 1 << "\n";
+		//std::cout << "Incrementing LEFT index to: " << leftIndex + 1 << "\n";
 	}
 }
 
@@ -82,7 +82,7 @@ void CustomDynamicArray::naiveSort()
 int CustomDynamicArray::partition(int low, int high)
 {
 	std::string pivot = listOfStrings[high];
-	std::cout << "Pivoting around " << pivot << " ...\n";
+	//std::cout << "Pivoting around " << pivot << " ...\n";
 	int i = low - 1;
 
 	for (int j = low; j < high; ++j)
@@ -96,9 +96,8 @@ int CustomDynamicArray::partition(int low, int high)
 
 	std::swap(listOfStrings[i + 1], listOfStrings[high]);
 
-	std::cout << "Updated names after partition: \n";
-	//printVec(names);
-	print(); 
+	//std::cout << "Updated names after partition: \n";
+	//print(); 
 
 	return i + 1; //new partition location is 1 step to the right of the last element less than the pivot  
 }
