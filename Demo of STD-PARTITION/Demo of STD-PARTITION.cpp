@@ -62,6 +62,9 @@ void demoAnotherUsefulCase()
 
 	/* Move urgent tasks to the front */
 	std::partition(tasks.begin(), tasks.end(),
+
+
+
 		[](const Task& t) { return t.isUrgent; });
 
 	std::cout << "Reordered tasks:\n";
