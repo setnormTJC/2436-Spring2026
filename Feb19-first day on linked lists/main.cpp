@@ -6,38 +6,63 @@
 #include <iostream>
 #include "LinkedList.h"
 
-
-
-int main()
+Node* demoThreeNodeLinkedList()
 {
-	//DON'T!
-	//while (true)
-	//{
-	//	int* i = new int; //dynamically allocates 4 Bytes of memory INFINITELY 
-	//}
-
-
-	std::cout << "Size of a POINTER (the memory address of) a Node object " << sizeof(Node*) << "\n";
-	std::cout << "Size of Node object (the amount of memory that NEW will allocate" << sizeof(Node) << "\n";
-
 	Node* pHead = new Node; //beware! of nullptr exceptions! (will the teacher generate one - many - YES!)
 
 	pHead->data = "whiskey";
 
-	pHead->pNext = nullptr; //but why!? (because this linked list is LAME - only one node)
-
+	pHead->pNext = nullptr;
 
 	/*Add the second NODE - hooray!*/
 
-	Node tailNode; 
+	//Node secondNode; //static memory allocation (versus dynamic)
 	//tailNode.data = "tango"
-	
-	Node* pTail = &tailNode; //the ampersand in this case acts as UNARY operator that gets the address of tailNode
 
-	pTail->data = "tango";
-	
+	Node* pSecond = new Node; // &secondNode; //the ampersand in this case acts as UNARY operator that gets the address of tailNode
 
-	pHead->pNext = pTail; //tadaa! A linked consisting of 2 nodes is now made!
+	pSecond->data = "tango";
+
+	pHead->pNext = pSecond; //tadaa! A linked consisting of 2 nodes is now made!
+
+	/*Add a THIRD node!*/
+
+	//DANGER, Will Robinson! (don't go out of bounds -> similar to accessing index = -1 in an ARRAY
+	//std::cout << pHead->pNext->pNext->data;
+
+	Node* pTail = new Node; 
+
+	pTail->data = "foxtrot";
+
+	//LINK this 3rd node back to the second node: 
+	pSecond->pNext = pTail; 
+	
+	pTail->pNext = nullptr; 
+
+	return pHead;
+}
+
+void printLinkedList(Node* pHead)
+{
+	Node* pCurrent = pHead; 
+
+	while (pCurrent != nullptr)
+	{
+		std::cout << pCurrent->data; 
+
+		//instead of i++ -> which we would do for an ARRAY
+		pCurrent = pCurrent->pNext;
+	}
+}
+
+
+int main()
+{
+	//Node* pHead = demoThreeNodeLinkedList(); 
+
+	//printLinkedList(pHead);
+
+
 
 }
 

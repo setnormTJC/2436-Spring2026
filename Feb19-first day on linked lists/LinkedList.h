@@ -15,6 +15,7 @@ struct Node
 
 class LinkedList
 {
+
 public: 
 
 };
