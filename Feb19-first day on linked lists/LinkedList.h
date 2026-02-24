@@ -5,18 +5,35 @@
 
 struct Node
 {
+	//vars:
 	std::string data; 
-	/*Don't!*/
-	Node* pNext; //What's my data type, brother? 
+	Node* pNext = nullptr;
 
-	//the BETTER way!
-	//std::unique_ptr<Node> pNext; 
+	//funcs:
+	Node() = delete; 
+	Node(std::string data, Node* pNext)
+		:
+		data(data), pNext(pNext)
+	{
+
+	}
 };
 
 class LinkedList
 {
-
+private: 
+	Node* pHead = nullptr; 
 public: 
+	LinkedList() = delete; 
+	/*
+	* @param dataInFrontNode -> this is the data that is INITIALLY in the front (AKA: head) node
+	*/
+	LinkedList(std::string dataInFrontNode);
+
+	void pushFront(std::string newData);
+
+
+	void print(); 
 
 };
 
