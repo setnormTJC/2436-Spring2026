@@ -10,7 +10,7 @@ struct Node
 	Node* pNext = nullptr;
 
 	//funcs:
-	Node() = delete; 
+	Node() = default;
 	Node(std::string data, Node* pNext)
 		:
 		data(data), pNext(pNext)
@@ -22,6 +22,8 @@ struct Node
 class LinkedList
 {
 private: 
+	//int m_a; //member_a  ("Hungarian Notation)
+
 	Node* pHead = nullptr; 
 public: 
 	LinkedList() = delete; 
@@ -32,6 +34,10 @@ public:
 
 	void pushFront(std::string newData);
 
+	//void popBack(); 
+
+	/*This algorithm has complexity O(1) -> constant time complexity! Hooray!*/
+	void popFront(); 
 
 	void print(); 
 

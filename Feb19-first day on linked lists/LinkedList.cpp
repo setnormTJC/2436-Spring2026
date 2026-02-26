@@ -18,12 +18,25 @@ void LinkedList::pushFront(std::string newData)
 	pHead = pNew; 
 }
 
+void LinkedList::popFront()
+{
+	//SOMETHIGN will be done with pHead!
+	
+	//might need a safety check here!
+	//if (pHead->pNext == nullptr)
+	//{
+
+	//}
+
+	pHead = pHead->pNext; 
+
+}
+
 void LinkedList::print()
 {
 	Node* pCurrent; //this is similar to i in for (int i = 0; i < array.size(); ++i){}
 
 	pCurrent = pHead; 
-
 
 	while (pCurrent != nullptr)
 	{

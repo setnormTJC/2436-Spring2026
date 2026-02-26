@@ -8,41 +8,46 @@
 
 
 
-//Node* demoThreeNodeLinkedList()
-//{
-//	Node* pHead = new Node; //beware! of nullptr exceptions! (will the teacher generate one - many - YES!)
-//
-//	pHead->data = "whiskey";
-//
-//	pHead->pNext = nullptr;
-//
-//	/*Add the second NODE - hooray!*/
-//
-//	//Node secondNode; //static memory allocation (versus dynamic)
-//	//tailNode.data = "tango"
-//
-//	Node* pSecond = new Node; // &secondNode; //the ampersand in this case acts as UNARY operator that gets the address of tailNode
-//
-//	pSecond->data = "tango";
-//
-//	pHead->pNext = pSecond; //tadaa! A linked consisting of 2 nodes is now made!
-//
-//	/*Add a THIRD node!*/
-//
-//	//DANGER, Will Robinson! (don't go out of bounds -> similar to accessing index = -1 in an ARRAY
-//	//std::cout << pHead->pNext->pNext->data;
-//
-//	Node* pTail = new Node; 
-//
-//	pTail->data = "foxtrot";
-//
-//	//LINK this 3rd node back to the second node: 
-//	pSecond->pNext = pTail; 
-//	
-//	pTail->pNext = nullptr; 
-//
-//	return pHead;
-//}
+Node* demoThreeNodeLinkedList()
+{
+	Node* pHead = new Node; //beware! of nullptr exceptions! (will the teacher generate one - many - YES!)
+
+	pHead->data = "whiskey"; //prepone
+
+	pHead->pNext = nullptr;
+
+
+	//std::cout << pHead->pCurrent << '\n';
+	//std::cout << pHead->data->p;
+
+
+	/*Add the second NODE - hooray!*/
+
+	//Node secondNode; //static memory allocation (versus dynamic)
+	//tailNode.data = "tango"
+
+	Node* pSecond = new Node; // &secondNode; //the ampersand in this case acts as UNARY operator that gets the address of tailNode
+
+	pSecond->data = "tango";
+
+	pHead->pNext = pSecond; //tadaa! A linked consisting of 2 nodes is now made!
+
+	/*Add a THIRD node!*/
+
+	//DANGER, Will Robinson! (don't go out of bounds -> similar to accessing index = -1 in an ARRAY
+	//std::cout << pHead->pNext->pNext->data;
+
+	Node* pTail = new Node; 
+
+	pTail->data = "foxtrot";
+
+	//LINK this 3rd node back to the second node: 
+	pSecond->pNext = pTail; 
+	
+	pTail->pNext = nullptr; 
+
+	return pHead;
+}
 
 void printLinkedList(Node* pHead)
 {
@@ -60,6 +65,8 @@ void printLinkedList(Node* pHead)
 
 int main()
 {
+
+	
 	std::forward_list<std::string> forwardList; 
 	//forwardList.pu
 	//forwardList.p
@@ -77,5 +84,6 @@ int main()
 
 	linkedList.print(); 
 
+	
 }
 
