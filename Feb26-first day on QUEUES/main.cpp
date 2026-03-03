@@ -42,8 +42,9 @@ int main()
 
     ll.pushFront("Carol");
 
-
     ll.popFront(); 
+
+    ll.pushBack("Zebra");
 
 }
 

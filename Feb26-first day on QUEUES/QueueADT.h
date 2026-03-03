@@ -25,6 +25,10 @@ private:
 	//int m_a; //member_a  ("Hungarian Notation)
 
 	Node* pHead = nullptr;
+
+	Node* pTail; //let's be SPACE HOGS and just ask for "lots" of space - and we'll be able to implement a more time-efficient
+	//PUSH_BACk method (because QUEUES insert at rear and we want SPEED!) 
+
 public:
 	LinkedList() = delete;
 	/*
@@ -33,6 +37,9 @@ public:
 	LinkedList(std::string dataInFrontNode);
 
 	void pushFront(std::string newData);
+
+	/*This is having time complexity O(N) -> AKA: linear time complexity*/
+	void pushBack(std::string newData); 
 
 	//void popBack(); 
 

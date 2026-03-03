@@ -19,15 +19,27 @@ void LinkedList::pushFront(std::string newData)
 	pHead = pNew;
 }
 
+void LinkedList::pushBack(std::string newData)
+{
+	Node* pTemp = pHead; 
+
+	while (pTemp->pNext != nullptr)
+	{
+		pTemp = pTemp->pNext; //i++
+	}
+
+	Node* pNew = new Node(newData, nullptr);
+
+	pTemp->pNext = pNew; 
+
+	delete pTemp; 
+}
+
 void LinkedList::popFront()
 {
 	//SOMETHIGN will be done with pHead!
 
-	//might need a safety check here!
-	//if (pHead->pNext == nullptr)
-	//{
-
-	//}
+	//NEED a safety check here!
 
 	Node* pTemp = pHead; //makes a copy
 
