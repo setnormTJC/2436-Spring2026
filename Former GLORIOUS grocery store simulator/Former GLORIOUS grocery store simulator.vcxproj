@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2ca47528-ecf6-4e6b-90ab-bd2e790e2ed1}</ProjectGuid>
-    <RootNamespace>Feb26firstdayonQUEUES</RootNamespace>
+    <ProjectGuid>{b5fecf87-e49f-40f9-9ddd-b23b220beb1d}</ProjectGuid>
+    <RootNamespace>FormerGLORIOUSgrocerystoresimulator</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="QueueADT.cpp" />
+    <ClCompile Include="Former GLORIOUS grocery store simulator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="QueueADT.h" />
+    <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

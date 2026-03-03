@@ -34,8 +34,16 @@ int main()
 
     //QueueADT q; 
 
-    QueueFromLinkedList q; 
+    //QueueFromLinkedList q; 
 
+    LinkedList ll("Alice");
+
+    ll.pushFront("Bob");
+
+    ll.pushFront("Carol");
+
+
+    ll.popFront(); 
 
 }
 

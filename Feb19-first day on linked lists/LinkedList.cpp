@@ -28,7 +28,11 @@ void LinkedList::popFront()
 
 	//}
 
+	Node* pTemp = pHead; //makes a copy
+
 	pHead = pHead->pNext; 
+
+	delete pTemp; //no leak here pal!
 
 }
 

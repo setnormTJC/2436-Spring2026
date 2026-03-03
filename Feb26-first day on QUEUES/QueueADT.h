@@ -1,6 +1,48 @@
 #pragma once
 
-#include"../Feb19-first day on linked lists/LinkedList.h"
+//#include"../Feb19-first day on linked lists/LinkedList.h"
+#include<string> 
+
+struct Node
+{
+	//vars:
+	std::string data;
+	Node* pNext = nullptr;
+
+	//funcs:
+	Node() = default;
+	Node(std::string data, Node* pNext)
+		:
+		data(data), pNext(pNext)
+	{
+
+	}
+};
+
+class LinkedList
+{
+private:
+	//int m_a; //member_a  ("Hungarian Notation)
+
+	Node* pHead = nullptr;
+public:
+	LinkedList() = delete;
+	/*
+	* @param dataInFrontNode -> this is the data that is INITIALLY in the front (AKA: head) node
+	*/
+	LinkedList(std::string dataInFrontNode);
+
+	void pushFront(std::string newData);
+
+	//void popBack(); 
+
+	/*This algorithm has complexity O(1) -> constant time complexity! Hooray!*/
+	void popFront();
+
+	void print();
+
+};
+
 
 
 /*Abstract data type!*/
@@ -22,7 +64,7 @@ class QueueImplementedWithLinkedList : public QueueADT
 	//NOTE: the parent class's `push` function MUST be implemented here (if you plan to instantiate this class) 
 private: //outsiders can't touch the privates! (hide the implementation details - don't overwhelm with complexity) 
 	//COMPOSE this class of a linked list object!
-	LinkedList linkedList; 
+	LinkedList linkedList; //this is composition! (this could be described as the underlying implementation) 
 
 public: 
 	void push(std::string newValue) override;
