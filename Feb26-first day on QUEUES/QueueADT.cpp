@@ -6,6 +6,8 @@ LinkedList::LinkedList(std::string dataInFrontNode)
 {
 	pHead = new Node(dataInFrontNode, nullptr);
 	//what do it do? 
+
+	pTail = pHead; 
 }
 
 void LinkedList::pushFront(std::string newData)
@@ -17,22 +19,38 @@ void LinkedList::pushFront(std::string newData)
 
 	/*Don't lose your head!*/
 	pHead = pNew;
+
+	/*Is any updated needed to pTail?? (I think not!)*/
 }
+
+//void LinkedList::pushBack(std::string newData)
+//{
+//	Node* pTemp = pHead; 
+//
+//	int numberOfOperations = 0; //by "operations", I mean having to advance the pointer
+//
+//	while (pTemp->pNext != nullptr)
+//	{
+//		pTemp = pTemp->pNext; //i++
+//		numberOfOperations++; 
+//	}
+//
+//	Node* pNew = new Node(newData, nullptr);
+//
+//	pTemp->pNext = pNew; 
+//
+//	delete pTemp; 
+//
+//	std::cout << "We had to do this many operations for pushing back " << newData << ": " << numberOfOperations << "\n";
+//}
 
 void LinkedList::pushBack(std::string newData)
 {
-	Node* pTemp = pHead; 
-
-	while (pTemp->pNext != nullptr)
-	{
-		pTemp = pTemp->pNext; //i++
-	}
-
 	Node* pNew = new Node(newData, nullptr);
+	pTail->pNext = pNew;
+	pTail = pNew; 
 
-	pTemp->pNext = pNew; 
-
-	delete pTemp; 
+	//No longer O(N) now that we have added SPACE COMPLEXITY (pTail)  - hooray!
 }
 
 void LinkedList::popFront()
@@ -66,12 +84,26 @@ void LinkedList::print()
 }
 
 
+QueueImplementedWithLinkedList::QueueImplementedWithLinkedList(std::string dataAtFrontOfQueue)
+	: 
+	linkedList(dataAtFrontOfQueue)
+{
+	//nothing needed here
+}
+
 void QueueImplementedWithLinkedList::push(std::string newValue)
 {
-	//linkedList.pushFront(newValue); 
+	linkedList.pushBack(newValue); 
 }
 
 void QueueImplementedWithLinkedList::pop()
 {
-	//linkedList.popFront(); 
+	//if queue is EMPTY - go no further! 
+
+	linkedList.popFront(); 
+}
+
+void QueueImplementedWithArray::pop()
+{
+	//QueueImplementedWithArray::array.p
 }

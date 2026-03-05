@@ -2,6 +2,8 @@
 
 //#include"../Feb19-first day on linked lists/LinkedList.h"
 #include<string> 
+#include <string>
+#include <vector>
 
 struct Node
 {
@@ -38,7 +40,7 @@ public:
 
 	void pushFront(std::string newData);
 
-	/*This is having time complexity O(N) -> AKA: linear time complexity*/
+	/*This is having time complexity O(1)*/
 	void pushBack(std::string newData); 
 
 	//void popBack(); 
@@ -74,7 +76,12 @@ private: //outsiders can't touch the privates! (hide the implementation details 
 	LinkedList linkedList; //this is composition! (this could be described as the underlying implementation) 
 
 public: 
+	QueueImplementedWithLinkedList() = delete; 
+	QueueImplementedWithLinkedList(std::string dataAtFrontOfQueue); 
+
+	/*Push inserts in rear*/
 	void push(std::string newValue) override;
+	/*Pop removes from front - BECAUSE FIFO (first in, first out) "scheduling policy"*/
 	void pop() override; 
 };
 
@@ -82,4 +89,13 @@ public:
 class QueueImplementedWithArray : public QueueADT
 {
 
+	std::vector<std::string> dynamicArray; //what about this is no good for a seque (single-ended queue)?
+
+public: 
+	QueueImplementedWithArray() = delete; 
+	QueueImplementedWithArray(std::string dataAtFrontOfQueue);
+
+	void push(std::string newValue) override;
+	void pop() override;
+	
 };

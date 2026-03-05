@@ -17,34 +17,40 @@ void printCustomers(std::queue<std::string> customersInLine)
     }
 }
 
-int main()
+void demoLinkedListFunctionality()
 {
-    std::queue<std::string> customersInLine; 
-
-
-    //customersInLine.pop(); //no inputs/args/params
-
-    //customersInLine.push("Blake");
-    //customersInLine.push("Diego");
-    //customersInLine.push("Jewels");
-    //customersInLine.push("Michael");
-    //customersInLine.push("Samwise");
-
-    //printCustomers(customersInLine);
-
-    //QueueADT q; 
-
-    //QueueFromLinkedList q; 
-
     LinkedList ll("Alice");
 
     ll.pushFront("Bob");
 
     ll.pushFront("Carol");
 
-    ll.popFront(); 
+    ll.pushFront("Darth");
+
+    ll.pushFront("Eve");
+
+    ll.pushFront("Franco"); //this person is an ITALIAN
+
+    ll.popFront();
 
     ll.pushBack("Zebra");
 
+}
+
+int main()
+{
+    std::queue<std::string> customersInLine; 
+
+    //QueueADT q; 
+
+    QueueImplementedWithLinkedList q("Alice");
+
+    q.push("Bob"); 
+
+    q.push("Carol");
+
+    q.push("Darth");
+
+    q.pop(); 
 }
 
