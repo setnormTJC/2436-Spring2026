@@ -4,53 +4,17 @@
 #include <iostream>
 #include<queue> 
 
+#include"demos.h"
 #include"QueueADT.h"
+#include"utils.h"
 
 using namespace std; 
 
-void printCustomers(std::queue<std::string> customersInLine)
-{
-    while (customersInLine.empty() == false)
-    {
-        cout << customersInLine.front() << "\n";
-        customersInLine.pop(); //pop removes the element (customer) from the front of the queue
-    }
-}
-
-void demoLinkedListFunctionality()
-{
-    LinkedList ll("Alice");
-
-    ll.pushFront("Bob");
-
-    ll.pushFront("Carol");
-
-    ll.pushFront("Darth");
-
-    ll.pushFront("Eve");
-
-    ll.pushFront("Franco"); //this person is an ITALIAN
-
-    ll.popFront();
-
-    ll.pushBack("Zebra");
-
-}
 
 int main()
 {
-    std::queue<std::string> customersInLine; 
+	Demos::simpleQueueDemo(); 
 
-    //QueueADT q; 
 
-    QueueImplementedWithLinkedList q("Alice");
-
-    q.push("Bob"); 
-
-    q.push("Carol");
-
-    q.push("Darth");
-
-    q.pop(); 
 }
 

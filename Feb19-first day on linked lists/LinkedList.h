@@ -1,12 +1,10 @@
-#pragma once //only include this header file once ("guards" against redefinition errors)
-
-#include<memory>
-#include <string>
+#include<string> 
+#include <vector>
 
 struct Node
 {
 	//vars:
-	std::string data; 
+	std::string data;
 	Node* pNext = nullptr;
 
 	//funcs:
@@ -21,12 +19,16 @@ struct Node
 
 class LinkedList
 {
-private: 
+private:
 	//int m_a; //member_a  ("Hungarian Notation)
 
-	Node* pHead = nullptr; 
-public: 
-	LinkedList() = delete; 
+	Node* pHead = nullptr;
+
+	Node* pTail; //let's be SPACE HOGS and just ask for "lots" of space - and we'll be able to implement a more time-efficient
+	//PUSH_BACk method (because QUEUES insert at rear and we want SPEED!) 
+
+public:
+	LinkedList() = delete;
 	/*
 	* @param dataInFrontNode -> this is the data that is INITIALLY in the front (AKA: head) node
 	*/
@@ -34,12 +36,14 @@ public:
 
 	void pushFront(std::string newData);
 
+	/*This is having time complexity O(1)*/
+	void pushBack(std::string newData);
+
 	//void popBack(); 
 
 	/*This algorithm has complexity O(1) -> constant time complexity! Hooray!*/
-	void popFront(); 
+	void popFront();
 
-	void print(); 
+	void print();
 
 };
-

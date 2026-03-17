@@ -2,7 +2,6 @@
  ***************************************************************************
  * \file GroceryStore.cpp
  *
- * \author Caleb LaRue
  *
  * \brief This is the main controller and simulation tool for the midterm exam
  *
