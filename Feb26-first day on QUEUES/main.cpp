@@ -13,8 +13,9 @@ using namespace std;
 
 int main()
 {
-	Demos::simpleQueueDemo(); 
+	//Demos::simpleQueueDemo(); 
 
+	Demos::demoArrayBasedQueue(); 
 
 }
 

@@ -43,11 +43,26 @@ class QueueImplementedWithArray : public QueueADT
 
 	std::vector<std::string> dynamicArray; //what about this is no good for a seque (single-ended queue)?
 
+	/*The two variables below are required if using CLEVER pop*/
+	int first = -1;
+	int last = -1; 
+
 public: 
 	QueueImplementedWithArray() = delete; 
 	QueueImplementedWithArray(std::string dataAtFrontOfQueue);
 
-	//void push(std::string newValue) override;
-	void pop() override;
+	/*Insert in rear (FIFO policy) -> just call underlying data structure(std::vector)'s built-in push_back method*/
+	void push(std::string newValue) override;
 	
+	/*There is no POP_FRONT in std::vector!*/
+	void pop() override;
+
+
+private: 
+	/*Shift like a plebe (plebeian - a lowly commoner of Ancient Rome)*/
+	void popNaively(); 
+
+	/*std::vector has no max capacity (theoretically) -> therefore clever modular arithmetic cannot be used? */
+	void popCleverly();
+
 };

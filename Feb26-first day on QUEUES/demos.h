@@ -24,6 +24,7 @@ namespace Demos
 
 	}
 
+	/*This function is using the LINKED LIST implementation of a queue*/
 	void simpleQueueDemo()
 	{
 		//std::queue<std::string> customersInLine;
@@ -41,6 +42,18 @@ namespace Demos
 		q.pop();
 	}
 
+	void demoArrayBasedQueue()
+	{
+		QueueImplementedWithArray q("Alice");
+
+		q.push("Bob");
+
+		q.push("Carol");
+
+		q.push("Darth");
+
+		q.pop();
+	}
 
 
 }
