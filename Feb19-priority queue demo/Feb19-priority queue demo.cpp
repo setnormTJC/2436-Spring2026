@@ -64,7 +64,7 @@ int main()
 	std::priority_queue<PrinterJob> printQueue;
 	printQueue.push(firstJob);
 	printQueue.push(secondJob);
-	printQueue.push(thirdJob);1
+	printQueue.push(thirdJob);
 
 
 }
