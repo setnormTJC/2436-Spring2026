@@ -18,6 +18,11 @@ public:
 
 	/*returns node address (ex: for certain BinaryTree algos below)*/
 	Node* get(); 
+
+	/*@returns pLeft*/
+	Node* left();
+	/*@returns pRight*/
+	Node* right(); 
 };
 
 
@@ -34,7 +39,7 @@ public:
 
 	/*Credit to EJH for this terminology - see the image at the link below for an explanation of
 	the meaning of "fork": 
-	
+	https://github.com/setnormTJC/2436-Spring2026/blob/master/March31-firstDay%20on%20trees/The%20fork%20proof.jpg
 	*/
 	void isFork(Node* pNode); 
 
