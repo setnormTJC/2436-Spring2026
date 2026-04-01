@@ -4,31 +4,15 @@
 #include <iostream>
 
 
+#include"Demos.h"
 #include"Tree.h"
+
+
+
 
 int main()
 {
-	
-	BinaryTreeNode* pRoot = new BinaryTreeNode("Menu");
-
-	BinaryTreeNode* pFirstChild = new BinaryTreeNode("Appetizers");
-
-	BinaryTreeNode* pSecondChild = new BinaryTreeNode("Entrees");
-
-	BinaryTreeNode* pGrandchild = new BinaryTreeNode("Steak");
-
-	//pRoot->data = "NOT a menu"
-
-	pRoot->pLeft = pFirstChild; 
-	pRoot->pRight = pSecondChild; 
-
-	pRoot->pRight->pLeft = pGrandchild; 
-
-	//std::cout << pRoot->pLeft->data << "\n";
-
-
-	std::cout << pSecondChild->pLeft->data << "\n";
-	std::cout << pRoot->pRight->pLeft->data << "\n";
+	demoSimpleBinaryTree(); 
 
 }
 

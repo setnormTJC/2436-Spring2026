@@ -1,7 +1,12 @@
 #include "Tree.h"
 
-BinaryTreeNode::BinaryTreeNode(const std::string& dataInRoot)
+Node::Node(const std::string& dataInRoot)
 	: 
 	data(dataInRoot)
 {
+}
+
+Node* Node::get()
+{
+	return this; //double-check me, sir
 }

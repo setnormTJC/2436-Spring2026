@@ -2,19 +2,49 @@
 #include <string>
 
 
-class BinaryTreeNode
+/*"Node" means a binary tree node (has a left and right pointer) in this case*/
+class Node
 {
-public: 
 	std::string data; 
 
+	Node* pLeft{};
+	Node* pRight{};
 
-	BinaryTreeNode* pLeft; 
-	BinaryTreeNode* pRight;
+public: 
+
+	/*Constructor functions*/
+	Node() = delete; 
+	Node(const std::string& dataInRoot); 
+
+	/*returns node address (ex: for certain BinaryTree algos below)*/
+	Node* get(); 
+};
 
 
+class BinaryTree
+{
+	//what is the critical/vital pointer (Node*) in a tree? (what member variable should go here?)
+public: 
+	/*Adds preferentially to the left node, then the right (an arbitrary choice)*/
+	virtual void addNode(const std::string& newData); //note the virtual modifier!
 
-	/*Constructor function*/
 
-	BinaryTreeNode() = delete; 
-	BinaryTreeNode(const std::string& dataInRoot); 
+	/*Note that getting a particular pNode */
+	void isLeaf(Node* pNode); 
+
+	/*Credit to EJH for this terminology - see the image at the link below for an explanation of
+	the meaning of "fork": 
+	
+	*/
+	void isFork(Node* pNode); 
+
+	/*
+	* @returns pRoot
+	*/
+	Node* root(); 
+};
+
+class BinarySearchTree : public BinaryTree //note the inheritance
+{
+	void addNode(const std::string& newData) override; //note the override modifier!
 };
