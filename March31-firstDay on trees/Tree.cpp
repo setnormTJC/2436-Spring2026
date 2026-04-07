@@ -1,5 +1,6 @@
 #include "Tree.h"
 #include <iostream>
+#include <queue>
 
 Node::Node(const std::string& data)
 	: 
@@ -7,11 +8,7 @@ Node::Node(const std::string& data)
 {
 }
 
-Node* Node::get(const std::string& targetData)
-{
-	//call BFS or DFS until 1) found or 2) not in tree
-	return nullptr; //temporary return value 
-}
+
 
 
 BinaryTree::BinaryTree(const std::string dataInTheRoot)
@@ -23,32 +20,109 @@ BinaryTree::BinaryTree(const std::string dataInTheRoot)
 
 }
 
+void BinaryTree::addNode(const std::string& newData)
+{
+	//std::cout << "\n\nInserting " << newData << "...\n";
+
+	Node* pNew = new Node(newData); //make the new node
+
+	std::queue<Node*> visitedNodes; //allows us to find an empty spot to insert
+
+	visitedNodes.push(pRoot); 
+
+	bool newDataWasAdded = false; 
+
+	while (newDataWasAdded == false)
+	{
+		Node* pFront = visitedNodes.front(); 
+
+		if (pFront->pLeft == nullptr) //the spot is empty
+		{
+			pFront->pLeft = pNew; 
+			newDataWasAdded = true; 
+		}
+
+		else if (pFront->pRight == nullptr)
+		{
+			pFront->pRight = pNew; 
+			newDataWasAdded = true; 
+		}
+
+		else //both left and right were full - add them to the queue
+		{
+			//std::cout << "Visiting " << pFront->data << " and adding its children to the queue.\n";
+			visitedNodes.push(pFront->pLeft);
+			visitedNodes.push(pFront->pRight);
+
+			visitedNodes.pop(); 
+		}
+
+	}
+
+}
+
 void BinaryTree::addNode(const std::string& newData, Node* pParent)
 {
 
-	Node* newNode = new Node(newData);
-
-	//add preferentially to the left, if left is OCCUPPIED, add to the right
-	if (pParent->pLeft == nullptr)
-	{
-		pParent->pLeft = newNode; 
-	}
-
-	else if (pParent->pRight == nullptr) //right child does not yet exist
-	{
-		pParent->pRight = newNode; 
-	}
-
-	else //we're full up!
-	{
-		std::cout << "All full here - cannot add " << newData << "\n";
-	}
 }
 
+void BinaryTree::depthFirstTraverse(Node* pParent) const
+{
+	if (pParent == nullptr)
+	{
+		return;
+	}
+
+	//go left, "visit", then go right
+	depthFirstTraverse(pParent->pLeft);
+	std::cout << pParent->data << "\n";
+	depthFirstTraverse(pParent->pRight);
+}
+
+
+
+Node* BinaryTree::breadthFirstSearch(const std::string& target) const
+{
+	std::queue<Node*> visitedNodes;
+
+	visitedNodes.push(pRoot);
+
+	bool targetWasFound = false;
+	Node* pTarget = nullptr; 
+
+	while (!visitedNodes.empty() && !targetWasFound)
+	{
+		Node* pFront = visitedNodes.front();
+		visitedNodes.pop(); 
+
+		std::cout << pFront->data << "\n";
+
+		if (pFront->data == target) //sort of a best case - target was right at the front
+		{
+			targetWasFound = true;
+			pTarget = pFront; 
+		}
+
+		else //perhaps the left or right child contains the target...
+		{
+			if (pFront->pLeft != nullptr)
+			{
+				visitedNodes.push(pFront->pLeft);
+			}
+
+			if (pFront->pRight != nullptr)
+			{
+				visitedNodes.push(pFront->pRight);
+			}
+		}
+	}
+
+	return pTarget;
+}
 
 Node* BinaryTree::root()
 {
-	return pRoot; //temporary return value
+	return pRoot;
 }
 
 
@@ -61,7 +135,7 @@ Node* BinaryTree::root()
 
 
 
-void BinarySearchTree::addNode(const std::string& newData, Node* pParent)
+void BinarySearchTree::addNode(const std::string& newData)
 {
 
 }
