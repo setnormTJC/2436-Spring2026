@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream> 
 #include <string>
+#include <vector>
 
 
 /*"Node" means a binary tree node (has a left and right pointer) in this case*/
@@ -66,5 +67,24 @@ class BinarySearchTree : public BinaryTree //note the inheritance
 {
 public: 
 	void addNode(const std::string& newData) override; //note the override modifier!
+};
+
+class SuperNode
+{
+	std::string data; 
+	std::vector<SuperNode*> pChildren; 
+
+	friend class NAryTree;//give access to the privates
+};
+
+
+class NAryTree
+{
+	SuperNode* pRoot; 
+
+
+public: 
+	void addNode(const std::string& newValue, Node* pParent); //how do it work? 
+
 };
 

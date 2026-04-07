@@ -68,11 +68,12 @@ void BinaryTree::addNode(const std::string& newData, Node* pParent)
 
 void BinaryTree::depthFirstTraverse(Node* pParent) const
 {
-	if (pParent == nullptr)
+	if (pParent == nullptr) //base case
 	{
 		return;
 	}
 
+	//recursive case: 
 	//go left, "visit", then go right
 	depthFirstTraverse(pParent->pLeft);
 	std::cout << pParent->data << "\n";
