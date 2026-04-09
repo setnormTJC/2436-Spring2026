@@ -2,6 +2,8 @@
 #include <iostream>
 #include <queue>
 
+
+
 Node::Node(const std::string& data)
 	: 
 	data(data)
@@ -9,7 +11,7 @@ Node::Node(const std::string& data)
 }
 
 
-
+#pragma region BinaryTree
 
 BinaryTree::BinaryTree(const std::string dataInTheRoot)
 {
@@ -63,7 +65,7 @@ void BinaryTree::addNode(const std::string& newData)
 
 void BinaryTree::addNode(const std::string& newData, Node* pParent)
 {
-
+	//can YOU do it? 
 }
 
 void BinaryTree::depthFirstTraverse(Node* pParent) const
@@ -126,12 +128,104 @@ Node* BinaryTree::root()
 	return pRoot;
 }
 
+#pragma endregion
+
+
+
+SuperNode::SuperNode(const std::string& data)
+	: 
+	data(data)
+{
+}
+
+
+#pragma region NAryTree
 
 
 
 
+NAryTree::NAryTree(const std::string& valueInRoot)
+{
+	pRoot = new SuperNode(valueInRoot); 
+}
+
+SuperNode* NAryTree::root() const
+{
+	return pRoot; 
+}
+
+void NAryTree::addNode(const std::string& newValue, const std::string& parentValue)
+{
+	//find the parent with BFS
+	std::queue<SuperNode*> visitedNodes; 
+	visitedNodes.push(pRoot); 
+
+	bool found = false; 
+	while (!found && visitedNodes.empty() == false)
+	{
+		SuperNode* pFront = visitedNodes.front(); 
+		visitedNodes.pop(); 
+
+		//check if front of queue contains "the droid we're looking for"
+		if (pFront->data == parentValue)
+		{
+			SuperNode* pNew = new SuperNode(newValue);
+
+			pFront->pChildren.push_back(pNew);
+
+			found = true; 
+		}
+
+		else //add all 'N' children to the list of nodes to visit (search for `parentValue`)
+		{
+			for (const auto pCurrentChild : pFront->pChildren)
+			{
+				visitedNodes.push(pCurrentChild); 
+			}
+		}
+	}
+}
 
 
+SuperNode* NAryTree::find(const std::string& target, SuperNode* pParent) const
+{
+	if (pParent == nullptr)
+	{
+		return nullptr; //dead end, dead end, dead end!
+	}
+
+	if (pParent->data == target)
+	{
+		return pParent;
+	}
+
+	for (auto pCurrentChild : pParent->pChildren)
+	{
+		std::cout << pCurrentChild->data << ", "; //optional printing
+		SuperNode* pResult = find(target, pCurrentChild); 
+
+		if (pResult != nullptr)
+		{
+			return pResult; 
+		}
+	}
+	std::cout << "\n";
+
+	//if we go through all recursive calls and pResult was always nullptr...
+	return nullptr; //not found
+}
+
+bool NAryTree::isLeaf(SuperNode* pValue) const
+{
+	int numChildren = pValue->pChildren.size(); 
+
+	return (numChildren == 0);
+}
+
+
+
+
+#pragma endregion
 
 
 
@@ -140,3 +234,4 @@ void BinarySearchTree::addNode(const std::string& newData)
 {
 
 }
+

@@ -69,10 +69,20 @@ public:
 	void addNode(const std::string& newData) override; //note the override modifier!
 };
 
+
+
+
+
+/*A "SuperNode" is a node with potentially-unlimited numbers of children*/
 class SuperNode
 {
 	std::string data; 
 	std::vector<SuperNode*> pChildren; 
+
+public: 
+	SuperNode() = delete; 
+	/*Note that this constructor leaves `pChildren` empty*/
+	SuperNode(const std::string& data);
 
 	friend class NAryTree;//give access to the privates
 };
@@ -84,7 +94,19 @@ class NAryTree
 
 
 public: 
-	void addNode(const std::string& newValue, Node* pParent); //how do it work? 
+	NAryTree() = delete; 
+	NAryTree(const std::string& valueInRoot);
 
+	SuperNode* root() const; 
+
+	/*A sort of "edge/special case" to consider 
+	- what if more than one instance of `parentValue` is in the tree??*/
+	void addNode(const std::string& newValue, const std::string& parentValue); //how do it do what it s'posed ta do? 
+
+	/*@param wasFound -> NOTE the passing by non-const reference!*/
+	SuperNode* find(const std::string& target, SuperNode* pParent) const;
+
+	/*AKA: is "childless"*/
+	bool isLeaf(SuperNode* pValue) const;
 };
 

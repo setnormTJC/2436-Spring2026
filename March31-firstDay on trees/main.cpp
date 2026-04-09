@@ -19,34 +19,27 @@ void doSomething()
 int main()
 {
 	//demoSimpleBinaryTree(); 
+	//demoTreeTraversalAlgos(); 
+	
+	std::string rootValue = "Progenitor";
+	NAryTree inheritanceTree(rootValue);
+	SuperNode* pRoot = inheritanceTree.root(); 
 
-	BinaryTree binaryTree("Root");
+	int desiredNumberOfChildren = 3; 
+	for (int i = 0; i < desiredNumberOfChildren; ++i)
+	{
+		std::string childName = "child " + std::to_string(i); 
+		inheritanceTree.addNode(childName, rootValue);
+	}
 
-	Node* pRoot = binaryTree.root(); 
-
-	//level 1: 
-	binaryTree.addNode("L"); //as in "left" child of root
-	binaryTree.addNode("R"); //as in "right" child of root
-
-	//Node* pDarthsParent = binaryTree.pRoot->pLeft->pLeft->pRight //the DUMB way
-
-	//level 2:
-	binaryTree.addNode("LL"); //as in "left, left" grandchild of root
-
-	binaryTree.addNode("LR");
-
-	binaryTree.addNode("RL");
-
-	binaryTree.addNode("RR");
+	int a = 123; 
 
 
-	binaryTree.depthFirstTraverse(pRoot);
-
-	std::string target = "asfdasf";
-
-	//Node* pTarget = binaryTree.breadthFirstSearch(target); 
-
-
+	//int desiredNumberOfGrandChildren_fromFirstChild = 5; 
+	//for (int i = 0; i < desiredNumberOfGrandChildren_fromFirstChild; ++i)
+	//{
+	//	std::string 
+	//}
 
 	//BinarySearchTree bst;
 }
