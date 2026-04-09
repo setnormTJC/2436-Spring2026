@@ -21,25 +21,10 @@ int main()
 	//demoSimpleBinaryTree(); 
 	//demoTreeTraversalAlgos(); 
 	
-	std::string rootValue = "Progenitor";
-	NAryTree inheritanceTree(rootValue);
-	SuperNode* pRoot = inheritanceTree.root(); 
+	//demoNAryTree(); 
 
-	int desiredNumberOfChildren = 3; 
-	for (int i = 0; i < desiredNumberOfChildren; ++i)
-	{
-		std::string childName = "child " + std::to_string(i); 
-		inheritanceTree.addNode(childName, rootValue);
-	}
+	//demoKevinBaconTree(); 
 
-	int a = 123; 
-
-
-	//int desiredNumberOfGrandChildren_fromFirstChild = 5; 
-	//for (int i = 0; i < desiredNumberOfGrandChildren_fromFirstChild; ++i)
-	//{
-	//	std::string 
-	//}
 
 	//BinarySearchTree bst;
 }

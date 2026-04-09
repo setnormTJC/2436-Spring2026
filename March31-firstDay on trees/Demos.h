@@ -96,3 +96,31 @@ void demoKevinBaconTree()
 	pTarget = treeOfKevinBacon.find(targetInTree, pRoot);
 
 }
+
+void demoNAryTree()
+{
+	std::string rootValue = "Progenitor";
+	NAryTree familyTree(rootValue);
+	SuperNode* pRoot = familyTree.root();
+
+	int desiredNumberOfChildren = 3;
+	for (int i = 0; i < desiredNumberOfChildren; ++i)
+	{
+		std::string childName = "child " + std::to_string(i);
+		familyTree.addNode(childName, rootValue);
+	}
+
+	int desiredNumberOfGrandChildren_fromFirstChild = 5;
+	std::string parentName = "child 0";
+	for (int i = 0; i < desiredNumberOfGrandChildren_fromFirstChild; ++i)
+	{
+		std::string grandchildName = "grandchild + " + std::to_string(i);
+
+		familyTree.addNode(grandchildName, parentName);
+	}
+
+	//now print the full tree (by searching for a value that is NOT in the tree):
+	std::string target = "asdfasdfasdf";
+	auto pTarget = familyTree.find(target, pRoot);
+
+}

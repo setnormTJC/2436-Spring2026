@@ -76,7 +76,7 @@ public:
 /*A "SuperNode" is a node with potentially-unlimited numbers of children*/
 class SuperNode
 {
-	std::string data; 
+	std::string data; //tic tac toe board 
 	std::vector<SuperNode*> pChildren; 
 
 public: 
