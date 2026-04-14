@@ -26,6 +26,40 @@ int main()
 	//demoKevinBaconTree(); 
 
 
-	//BinarySearchTree bst;
+	//insert 8, 6, 7, 5, 3, 0, 9 into BST
+
+	std::vector<std::string> jennysNumber =
+	{
+		"8",
+		"6",
+		"7",
+		"5",
+		"3",
+		"0",
+		"9"
+	};
+
+	BinarySearchTree bst(jennysNumber[0]); //"8" is stored in the root node
+
+	Node* pRoot = bst.root(); 
+
+	for (int i = 1; i < jennysNumber.size(); ++i) //note that we start at i = 1! (not 0)
+	{
+		bst.addNodeToBST(jennysNumber[i], pRoot);
+	}
+
+	//std::string targetNotInTree = "fdkskjdskj"; //force BF traversal of entire tree
+	
+	//bst.breadthFirstSearch(targetNotInTree);
+
+	//int operationCount = 0; 
+	//auto pTarget = bst.findInBST(targetNotInTree, pRoot, operationCount);
+
+	//std::cout << "Number of operations for search in BST: " << operationCount << "\n";
+
+
+
+	bst.depthFirstTraverse(pRoot); 
+
 }
 

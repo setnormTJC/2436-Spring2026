@@ -20,11 +20,14 @@ public:
 
 
 	friend class BinaryTree; //gives BinaryTree access to pLeft and pRight and data
+
+	friend class BinarySearchTree; //just because your Parent is a friend doesn't mean you are ALSO a friend!
 };
 
 
 class BinaryTree
 {
+protected: 
 	Node* pRoot; //this one is the KING (important)
 
 
@@ -66,7 +69,20 @@ public:
 class BinarySearchTree : public BinaryTree //note the inheritance
 {
 public: 
-	void addNode(const std::string& newData) override; //note the override modifier!
+	BinarySearchTree() = delete; 
+
+	BinarySearchTree(const std::string& dataInRoot); 
+
+	void addNodeToBST(const std::string& newData, Node* pParent); //note the override modifier!
+
+	/*@param operationCount -> used for algorithm analysis (Big O complexity) -> pass in ZERO here when calling from main*/
+	Node* findInBST(const std::string& targetValue, Node* pParent, int& operationCount);
+
+	/*Go "all the way" to the right until you hit nullptr (leaf node/"childless")*/
+	std::string findMax() const; 
+
+	/*Go "all the way" to the LEFT until you hit nullptr (leaf node/"childless")*/
+	std::string findMin() const; 
 };
 
 

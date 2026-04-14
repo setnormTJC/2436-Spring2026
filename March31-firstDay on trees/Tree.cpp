@@ -141,9 +141,6 @@ SuperNode::SuperNode(const std::string& data)
 
 #pragma region NAryTree
 
-
-
-
 NAryTree::NAryTree(const std::string& valueInRoot)
 {
 	pRoot = new SuperNode(valueInRoot); 
@@ -222,16 +219,86 @@ bool NAryTree::isLeaf(SuperNode* pValue) const
 	return (numChildren == 0);
 }
 
-
-
-
 #pragma endregion
 
 
 
 
-void BinarySearchTree::addNode(const std::string& newData)
+
+
+BinarySearchTree::BinarySearchTree(const std::string& dataInRoot)
+	: 
+	BinaryTree(dataInRoot)
 {
+}
+
+void BinarySearchTree::addNodeToBST(const std::string& newData, Node* pParent)
+{
+	if (newData < pParent->data)
+	{
+		//check if left spot empty: 
+		if (pParent->pLeft == nullptr) //base case of recursion
+		{
+			Node* pNew = new Node(newData);
+			pParent->pLeft = pNew; //the rule of BSTs: add to the left if the newValue < parent's node value
+		}
+
+		else //recursive case
+		{
+			addNodeToBST(newData, pParent->pLeft); 
+		}
+	}
+
+	else if (newData > pParent->data)
+	{
+		if (pParent->pRight == nullptr)
+		{
+			Node* pNew = new Node(newData);
+			pParent->pRight = pNew; 
+		}
+		else
+		{
+			addNodeToBST(newData, pParent->pRight);
+		}
+
+	}
+
+	//else -> newData == pParent->data (maybe we just REFUSE to allow DUPLCATES in our BST)
 
 }
 
+Node* BinarySearchTree::findInBST(const std::string& targetValue, Node* pParent, int& operationCount)
+{
+	if (pParent == nullptr) //careful not to "dereference" the nullptr
+	{
+		return nullptr; 
+	}
+
+	if (targetValue == pParent->data)
+	{
+		return pParent; 
+	}
+
+	else if (targetValue > pParent->data)
+	{
+		operationCount++; 
+		findInBST(targetValue, pParent->pRight, operationCount); 		//look right
+	}
+
+	else //(targetValue < pParent->data)
+	{
+		operationCount++; 
+		findInBST(targetValue, pParent->pLeft, operationCount);
+	}
+
+}
+
+std::string BinarySearchTree::findMax() const
+{
+	return std::string();
+}
+
+std::string BinarySearchTree::findMin() const
+{
+	return std::string();
+}

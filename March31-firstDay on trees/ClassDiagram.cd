@@ -18,7 +18,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BinaryTree">
-    <Position X="7" Y="0.75" Width="3" />
+    <Position X="6.25" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AECAAAAAAAAAAAgAAAIgAAAAABAIAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Tree.h</FileName>
@@ -28,9 +28,16 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Node">
-    <Position X="7.25" Y="4" Width="2.25" />
+    <Position X="6" Y="4" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAABAAAAAAAAAQAAEAAAA=</HashCode>
+      <FileName>Tree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinarySearchTree">
+    <Position X="9.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Tree.h</FileName>
     </TypeIdentifier>
   </Class>
