@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-
+#include<memory>
 
 #include"Demos.h"
 #include"Tree.h"
@@ -23,8 +23,7 @@ int main()
 	
 	//demoNAryTree(); 
 
-	//demoKevinBaconTree(); 
-
+	//demoKevinBaconTree();
 
 	//insert 8, 6, 7, 5, 3, 0, 9 into BST
 
@@ -45,21 +44,21 @@ int main()
 
 	for (int i = 1; i < jennysNumber.size(); ++i) //note that we start at i = 1! (not 0)
 	{
-		bst.addNodeToBST(jennysNumber[i], pRoot);
+		bst.addNodeToBST(jennysNumber[i], pRoot); 
 	}
-
-	//std::string targetNotInTree = "fdkskjdskj"; //force BF traversal of entire tree
+	
+	std::string target = "-123"; 
 	
 	//bst.breadthFirstSearch(targetNotInTree);
 
-	//int operationCount = 0; 
-	//auto pTarget = bst.findInBST(targetNotInTree, pRoot, operationCount);
+	int operationCount = 0; 
+	auto pTarget = bst.findInBST(target, pRoot, operationCount);
 
-	//std::cout << "Number of operations for search in BST: " << operationCount << "\n";
-
+	std::cout << "Number of operations for search in BST: " << operationCount << "\n";
 
 
 	bst.depthFirstTraverse(pRoot); 
+
 
 }
 
