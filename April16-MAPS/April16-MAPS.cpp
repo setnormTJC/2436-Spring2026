@@ -2,8 +2,9 @@
 //
 
 #include <iostream>
-#include<string> 
 #include <map>
+#include<random>
+#include<string> 
 
 #include"functions.h"
 
@@ -52,18 +53,62 @@ void demoCUTEMapExample()
 
 }
 
+
+void demoSimpleCaesarEncryption()
+{
+	string message = "abcdefg";
+	int key = 5;
+
+	string encrypted = caesarEncrypt(message, key);
+
+	cout << "Original:  " << message << endl;
+	cout << "Encrypted: " << encrypted << endl;
+
+}
+
 int main()
 {
 
 	auto letterFrequencyMap = getLetterFrequencyMapFromDictionary(); 
 
-	for (pair<char, int> currentPair : letterFrequencyMap)
-	{
-		cout << currentPair.first << " occurs this many times: "
-			<< currentPair.second << "\n";
-	}
+	//printHistogramOfLetterFrequencies(letterFrequencyMap);
+
+	demoSimpleCaesarEncryption(); 
 
 
+	int maxKeyValue = 10; 
+	mt19937 rng(random_device{}());
+	uniform_int_distribution<int> distribution(0, maxKeyValue);
+
+	int randomKey = distribution(rng); 
 
 
+	std::string sampleText =
+		"It is a truth universally acknowledged, that a single man in possession "
+		"of a good fortune, must be in want of a wife. However little known the "
+		"feelings or views of such a man may be on his first entering a neighbourhood, " //BRITISH
+		"this truth is so well fixed in the minds of the surrounding families, that "
+		"he is considered the rightful property of some one or other of their daughters. "
+		"\"My dear Mr. Bennet,\" said his lady to him one day, \"have you heard that "
+		"Netherfield Park is let at last?\" Mr. Bennet replied that he had not. "
+		"\"But it is,\" returned she; \"for Mrs. Long has just been here, and she "
+		"told me all about it.\" Mr. Bennet made no answer. \"Do you not want to know "
+		"who has taken it?\" cried his wife impatiently. \"YOU want to tell me, and I "
+		"have no objection to hearing it.\"";
+
+
+	auto plainTextFrequencyMap = getLetterFrequencyMap_OfGivenString(sampleText);
+	printHistogramOfLetterFrequencies(plainTextFrequencyMap);
+
+
+	string cipherText = caesarEncrypt(sampleText, randomKey);
+
+	cout << cipherText << "\n";
+
+	auto cipherTextFrequencyMap = getLetterFrequencyMap_OfGivenString(cipherText);
+
+	cout << "\n\n\n";
+	printHistogramOfLetterFrequencies(cipherTextFrequencyMap);
+	
+	int a = 123; 
 }
